@@ -1,0 +1,52 @@
+---
+- name: Install vagrant
+  become: yes
+  dnf:
+    name: vagrant
+    state: present
+
+- name: Enable RPM Fusion Free
+  become: yes
+  dnf:
+    name: "{{ rpmfusion_free_rpm }}"
+    state: present
+
+- name: Install Virtualbox
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ virtualbox_packages }}"
+
+- name: Run akmods
+  become: yes
+  command: akmods
+  notify: restart systemd-modules-load
+
+- name: Install Python development packages
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ python_packages }}"
+
+- name: Add Docker CE repo
+  become: yes
+  get_url:
+    url: "{{ docker_ce_repo }}"
+    dest: /etc/yum.repos.d/
+
+- name: Install Docker CE
+  become: yes
+  dnf:
+    name: docker-ce
+    state: present
+
+- name: Install container tools
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - buildah
+    - podman

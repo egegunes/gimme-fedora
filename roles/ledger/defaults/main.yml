@@ -1,0 +1,5 @@
+ledger_pkgs:
+  - ledger
+  - python2-ledger
+ledger_repo: git@github.com:egegunes/ledger.git
+ledger_path: "{{ home }}/ledger"

@@ -1,0 +1,7 @@
+---
+- name: restart systemd-modules-load
+  become: yes
+  service:
+    name: systemd-modules-load
+    state: restarted
+  listen: "restart systemd-modules-load"

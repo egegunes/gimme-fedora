@@ -1,0 +1,23 @@
+---
+- name: Ensure volume group is present
+  become: yes
+  lvg:
+    vg: "{{ vg_name }}"
+    pvs: "{{ pvs }}"
+    state: present
+
+- name: Activate logical volume
+  become: yes
+  lvol:
+    vg: "{{ vg_name }}"
+    lv: "{{ lv_name }}"
+    size: 100%VG
+    active: yes
+
+- name: Mount volume
+  become: yes
+  mount:
+    src: "{{ vg_path }}"
+    path: "{{ mount_path }}"
+    state: mounted
+    fstype: ext4

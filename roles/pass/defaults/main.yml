@@ -1,0 +1,2 @@
+passwords_repo: git@github.com:egegunes/passwords.git
+passwords_path: "{{ home }}/.password-store"

@@ -1,0 +1,21 @@
+---
+- name: Copy config
+  copy:
+    src: gpg.conf
+    dest: "{{ gnupg_home }}/gpg.conf"
+
+- name: Copy public keys
+  copy:
+    src: "{{ item }}"
+    dest: "{{ gnupg_home }}/{{ item }}"
+  with_items:
+    - personal.asc
+    - work.asc
+    - iphone.asc
+
+- name: Import public keys
+  command: gpg2 --quiet --import "{{gnupg_home}}/{{ item }}"
+  with_items:
+    - personal.asc
+    - work.asc
+    - iphone.asc

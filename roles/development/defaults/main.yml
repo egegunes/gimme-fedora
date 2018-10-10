@@ -1,0 +1,14 @@
+rpmfusion_free_rpm: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
+
+virtualbox_packages:
+  - VirtualBox
+  - akmod-VirtualBox
+  - "kernel-devel-{{ ansible_facts['kernel'] }}"
+
+python_packages:
+  - python3-virtualenv
+  - python3-flake8
+  - python3-isort
+  - python3-ipython
+
+docker_ce_repo: https://download.docker.com/linux/fedora/docker-ce.repo

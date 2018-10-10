@@ -1,0 +1,80 @@
+---
+- name: Install python-psutil
+  become: yes
+  dnf:
+    name: python2-psutil
+    state: present
+
+- name: Copy user dirs file
+  copy:
+    src: userdirs
+    dest: "{{ home }}/.config/user-dirs.dirs"
+
+- name: Create userdirs directory
+  file:
+    path: "{{ home }}/.userdirs"
+    state: directory
+
+- name: Remove default folders
+  file:
+    path: "{{ home }}/{{ item }}"
+    state: absent
+  with_items:
+    - Desktop
+    - Templates
+    - Public
+    - Music
+    - Videos
+
+- name: Enable Hack repo
+  become: yes
+  get_url:
+    url: "{{ hack_font_repo }}"
+    dest: /etc/yum.repos.d/
+
+- name: Install Hack font
+  become: yes
+  dnf:
+    name: hack-fonts
+    state: present
+
+- name: Configure Gnome Terminal
+  dconf:
+    key: "/org/gnome/terminal/legacy/{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items: "{{ terminal_settings }}"
+
+- name: Configure system keybindings
+  dconf:
+    key: "/org/gnome/desktop/wm/keybindings/{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items: "{{ system_keybindings }}"
+
+- name: Add keybinding to launch Terminal
+  dconf:
+    key: "/plugins/media-keys/custom-keybindings/custom0/{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items: "{{ launch_terminal_keybinding }}"
+
+- name: Install extensions
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ extensions }}"
+
+- name: Install Tweak Tool
+  become: yes
+  dnf:
+    name: gnome-tweak-tool
+    state: present
+
+- name: Setup input sources
+  dconf:
+    key: /org/gnome/desktop/input-sources/sources
+    value: "{{ input_sources }}"
+
+- name: Setup favorite apps
+  dconf:
+    key: /org/gnome/shell/favorite-apps
+    value: "{{ favorite_apps }}"

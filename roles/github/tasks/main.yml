@@ -1,0 +1,11 @@
+---
+- name: Read SSH public key to authorize
+  shell: cat "{{ home }}/.ssh/id_rsa.pub"
+  register: ssh_pub_key
+
+- name: Add key to GitHub
+  local_action:
+    module: github_key
+    name: "{{ ansible_facts['hostname'] }}"
+    token: "{{ GITHUB_ACCESS_TOKEN }}"
+    pubkey: "{{ ssh_pub_key.stdout }}"

@@ -1,0 +1,11 @@
+---
+- name: Install pass
+  become: yes
+  dnf:
+    name: pass
+    state: present
+
+- name: Clone passwords
+  git:
+    repo: "{{ passwords_repo }}"
+    dest: "{{ passwords_path }}"

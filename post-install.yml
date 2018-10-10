@@ -1,0 +1,36 @@
+---
+- name: Configure Fedora
+  hosts: all
+  connection: local
+  pre_tasks:
+    - name: Update packages
+      become: yes
+      dnf:
+        name: "*"
+        state: latest
+  roles:
+    - role: selinux
+    - role: firewall
+    - role: sudoers
+    - role: ssh
+    - role: sshd
+    - role: nvidia
+      when: ENABLE_NVIDIA
+    - role: storage
+      when: ENABLE_STORAGE
+    - role: git
+    - role: github
+      when: ENABLE_GITHUB
+    - role: yubikey
+    - role: gpg
+    - role: pass
+    - role: dotfiles
+    - role: vim
+    - role: ledger
+    - role: notes
+    - role: flathub
+    - role: chrome
+    - role: gnome
+    - role: development
+    - role: plex
+      when: ENABLE_PLEX

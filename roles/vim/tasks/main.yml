@@ -1,0 +1,20 @@
+---
+- name: Install vim
+  become: yes
+  dnf:
+    name: vim
+    state: present
+
+- name: Install Vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ home }}/.vim/bundle/Vundle.vim"
+
+- name: Install plugins
+  command: vim +PluginInstall +qal
+
+- name: Install fzf
+  become: yes
+  dnf:
+    name: fzf
+    state: present

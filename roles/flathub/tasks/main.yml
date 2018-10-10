@@ -1,0 +1,16 @@
+---
+- name: Enable Flathub repository
+  become: yes
+  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Install Fractal
+  become: yes
+  command: flatpak install --assumeyes flathub org.gnome.Fractal
+
+- name: Install Spotify
+  become: yes
+  command: flatpak install --assumeyes flathub com.spotify.Client
+
+- name: Install Slack
+  become: yes
+  command: flatpak install --assumeyes flathub com.slack.Slack

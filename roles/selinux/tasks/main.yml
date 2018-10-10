@@ -1,0 +1,12 @@
+---
+- name: Make sure selinux is enabled
+  become: yes
+  selinux:
+    policy: targeted
+    state: enforcing
+
+- name: Install libselinux-python
+  become: yes
+  dnf:
+    name: libselinux-python
+    state: present

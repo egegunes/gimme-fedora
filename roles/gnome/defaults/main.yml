@@ -1,0 +1,47 @@
+hack_font_repo: https://copr.fedorainfracloud.org/coprs/heliocastro/hack-fonts/repo/fedora-28/heliocastro-hack-fonts-fedora-28.repo
+
+dotfiles_path: "{{ home }}/.dotfiles"
+
+extensions:
+  - gnome-shell-extension-alternate-tab
+  - gnome-shell-extension-topicons-plus
+
+color_palette: "['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']" 
+
+terminal_settings:
+  - { key: "default-show-menubar", value: "false" }
+  - { key: "profiles:/list", value: "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/foreground-color", value: "'rgb(255,255,255)'" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-color", value: "'rgb(0,0,0)'" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/visible-name", value: "'{{ user }}'" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/login-shell", value: "true" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/palette", value: "{{ color_palette }}" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/cursor-shape", value: "'block'" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scroll-on-output", value: "true" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-theme-colors", value: "false" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-system-font", value: "false" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font", value: "'Hack 16'" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollback-unlimited", value: "true" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/audible-bell", value: "false" }
+  - { key: "profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollbar-policy", value: "'never'" }
+
+system_keybindings:
+  - { key: "show-desktop", value: "['<Super>d']" }
+  - { key: "cycle-windows", value: "['<Primary><Alt>h']" }
+  - { key: "cycle-windows-backward", value: "['<Primary><Shift><Alt>h']" }
+  - { key: "cycle-group", value: "['<Primary><Alt>l']" }
+  - { key: "cycle-group-backward", value: "['<Primary><Shift><Alt>l']" }
+  - { key: "move-to-monitor-down", value: "['<Primary><Super>j']" }
+  - { key: "move-to-monitor-up", value: "['<Primary><Super>k']" }
+  - { key: "move-to-workspace-down", value: "['<Primary><Super>j']" }
+  - { key: "move-to-workspace-up", value: "['<Primary><Shift>k']" }
+  - { key: "switch-to-workspace-up", value: "['<Primary><Alt>k']" }
+  - { key: "switch-to-workspace-down", value: "['<Primary><Alt>j']" }
+
+launch_terminal_keybinding:
+  - { key: "binding", value: "'<Primary><Alt>t'" }
+  - { key: "command", value: "'gnome-terminal'" }
+  - { key: "name", value: "'Launch Terminal'" }
+
+input_sources: "[('xkb', 'us'), ('xkb', 'tr')]"
+favorite_apps: "['google-chrome.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"
