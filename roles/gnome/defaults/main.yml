@@ -45,3 +45,4 @@ launch_terminal_keybinding:
 
 input_sources: "[('xkb', 'us'), ('xkb', 'tr')]"
 favorite_apps: "['google-chrome.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop']"
+enabled_extensions: "['background-logo@fedorahosted.org', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'TopIcons@phocean.net']"

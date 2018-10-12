@@ -63,6 +63,11 @@
     state: present
   with_items: "{{ extensions }}"
 
+- name: Enable extensions
+  dconf:
+    key: /org/gnome/shell/enabled_extensions
+    value: "{{ enabled_extensions }}"
+
 - name: Install Tweak Tool
   become: yes
   dnf:
