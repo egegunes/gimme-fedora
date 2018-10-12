@@ -1,0 +1,20 @@
+---
+- name: Start and enable firewalld
+  become: yes
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+
+- name: Install python bindings for firewalld
+  become: yes
+  dnf:
+    name: python3-firewall
+    state: present
+
+- name: Enable services
+  become: yes
+  firewalld:
+    service: "{{ item }}"
+    state: enabled
+  with_items: "{{ permitted_services }}"
