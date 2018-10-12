@@ -2,7 +2,7 @@
 - name: Install python-psutil
   become: yes
   dnf:
-    name: python2-psutil
+    name: python3-psutil
     state: present
 
 - name: Copy user dirs file
