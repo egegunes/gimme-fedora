@@ -42,6 +42,13 @@
     name: docker-ce
     state: present
 
+- name: Enable Docker daemon
+  become: yes
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
 - name: Install container tools
   become: yes
   dnf:
