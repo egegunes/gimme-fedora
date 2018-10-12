@@ -57,3 +57,9 @@
   with_items:
     - buildah
     - podman
+
+- name: Install golang
+  become: yes
+  dnf:
+    name: golang
+    state: present
