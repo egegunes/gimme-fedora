@@ -83,3 +83,8 @@
   dconf:
     key: /org/gnome/shell/favorite-apps
     value: "{{ favorite_apps }}"
+
+- name: Show date on panel
+  dconf:
+    key: /org/gnome/desktop/interface/clock-show-date
+    value: "true"
