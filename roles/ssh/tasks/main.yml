@@ -6,16 +6,18 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     mode: 0700
+
 - name: Generate SSH key pair
   command: ssh-keygen -q -t rsa -f "{{ home }}/.ssh/id_rsa" -C "{{ ansible_facts['hostname'] }}" -N ""
   args:
     creates: "{{ home }}/.ssh/id_rsa"
+
 - name: Ensure file ownerships and permissions OK
   file:
     path: "{{ item }}"
     owner: "{{ user }}"
     group: "{{ group }}"
-    mode: 0700
+    mode: 0600
   with_items:
     - "{{ home }}/.ssh/id_rsa"
     - "{{ home }}/.ssh/id_rsa.pub"
