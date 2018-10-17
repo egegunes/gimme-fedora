@@ -21,6 +21,7 @@
     - role: git
     - role: github
       when: ENABLE_GITHUB
+    - role: sshconfig
     - role: yubikey
     - role: gpg
     - role: pass

@@ -1,0 +1,36 @@
+- name: Check sshconfig repo exists
+  stat:
+    path: "{{ home }}/.ssh/.git"
+  register: sshconfig
+
+- name: Clone ssh config
+  git:
+    repo: "{{ sshconfig_repo }}"
+    dest: "{{ sshconfig_path }}"
+  when: not sshconfig.stat.exists
+
+- name: Copy config and gitignore
+  copy:
+    src: "{{ sshconfig_path }}/{{ item }}"
+    dest: "{{ home }}/.ssh/{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0600
+  with_items:
+    - config
+    - .gitignore
+  when: not sshconfig.stat.exists
+
+- name: Copy git folder
+  copy:
+    src: "{{ sshconfig_path }}/.git"
+    dest: "{{ home }}/.ssh/"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  when: not sshconfig.stat.exists
+
+- name: Remove sshconfig
+  file:
+    path: "{{ sshconfig_path }}"
+    state: absent
+  when: not sshconfig.stat.exists
