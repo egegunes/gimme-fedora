@@ -29,6 +29,7 @@
     - role: vim
     - role: ledger
     - role: notes
+    - role: mutt
     - role: flathub
     - role: chrome
     - role: gnome

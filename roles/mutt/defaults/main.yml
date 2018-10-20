@@ -1,0 +1,3 @@
+---
+muttrc_repo: git@github.com:egegunes/mutt.git
+muttrc_path: "{{ home }}/.mutt"

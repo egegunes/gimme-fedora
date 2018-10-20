@@ -1,0 +1,11 @@
+---
+- name: Clone muttrc repo
+  git:
+    repo: "{{ muttrc_repo }}"
+    dest: "{{ muttrc_path }}"
+
+- name: Install mutt
+  become: true
+  dnf:
+    name: mutt
+    state: present
