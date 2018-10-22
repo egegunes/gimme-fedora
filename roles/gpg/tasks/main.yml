@@ -1,4 +1,10 @@
 ---
+- name: Create gnupg home
+  file:
+    path: "{{ gnupg_home }}"
+    state: directory
+    mode: 0700
+
 - name: Copy config
   copy:
     src: gpg.conf
