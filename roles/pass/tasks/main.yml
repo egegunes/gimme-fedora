@@ -9,3 +9,4 @@
   git:
     repo: "{{ passwords_repo }}"
     dest: "{{ passwords_path }}"
+    accept_hostkey: true

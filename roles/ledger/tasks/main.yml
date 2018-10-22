@@ -10,3 +10,4 @@
   git:
     repo: "{{ ledger_repo }}"
     dest: "{{ ledger_path }}"
+    accept_hostkey: true

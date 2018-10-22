@@ -7,6 +7,7 @@
   git:
     repo: "{{ sshconfig_repo }}"
     dest: "{{ sshconfig_path }}"
+    accept_hostkey: true
   when: not sshconfig.stat.exists
 
 - name: Copy config and gitignore
