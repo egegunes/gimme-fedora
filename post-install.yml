@@ -34,5 +34,3 @@
     - role: chrome
     - role: gnome
     - role: development
-    - role: plex
-      when: ENABLE_PLEX
