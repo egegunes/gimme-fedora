@@ -9,3 +9,9 @@
   dnf:
     name: mutt
     state: present
+
+- name: Install elinks
+  become: true
+  dnf:
+    name: elinks
+    state: present
