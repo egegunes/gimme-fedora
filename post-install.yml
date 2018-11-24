@@ -34,3 +34,4 @@
     - role: chrome
     - role: gnome
     - role: development
+    - role: tmux

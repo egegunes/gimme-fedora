@@ -1,0 +1,12 @@
+---
+- name: Install tmux
+  become: true
+  dnf:
+    name: tmux
+    state: present
+
+- name: Copy tmux config
+  file:
+    src: "{{ home }}/.dotfiles/tmux/tmux.conf"
+    dest: "{{ home }}/.tmux.conf"
+    state: link
