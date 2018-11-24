@@ -1,0 +1,47 @@
+---
+- name: Enable Google Cloud SDK repo
+  become: true
+  copy:
+    src: gcloud.repo
+    dest: /etc/yum.repos.d/google-cloud-sdk.repo
+
+- name: Import GPG keys
+  become: true
+  rpm_key:
+    key: "{{ item }}"
+    state: present
+  with_items: "{{ gcloud_rpm_keys }}"
+
+- name: Install Google Cloud SDK packages
+  become: true
+  dnf:
+    name: "{{ gcloud_sdk_pkgs }}"
+    state: present
+
+- name: Download doctl archive
+  get_url:
+    url: "{{ doctl_download_url }}"
+    dest: /tmp/doctl.tar.gz
+
+- name: Extract doctl archive
+  unarchive:
+    src: /tmp/doctl.tar.gz
+    dest: /tmp
+
+- name: Copy doctl to path
+  become: true
+  copy:
+    src: /tmp/doctl
+    dest: /usr/local/bin/doctl
+    mode: +x
+
+- name: Install awscli
+  pip:
+    name: awscli
+    extra_args: --user
+
+- name: Install kubectl
+  become: true
+  dnf:
+    name: kubectl
+    state: present

@@ -35,3 +35,4 @@
     - role: gnome
     - role: development
     - role: tmux
+    - role: cloud

@@ -1,0 +1,7 @@
+gcloud_sdk_pkgs:
+  - google-cloud-sdk
+gcloud_rpm_keys:
+  - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+  - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+doctl_download_url: https://github.com/digitalocean/doctl/releases/download/v1.11.0/doctl-1.11.0-linux-amd64.tar.gz
