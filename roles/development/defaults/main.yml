@@ -16,3 +16,6 @@ docker_ce_repo: https://download.docker.com/linux/fedora/docker-ce.repo
 docker_packages:
   - docker-ce
   - docker-compose
+
+utils:
+  - jq

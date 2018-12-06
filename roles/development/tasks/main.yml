@@ -1,4 +1,10 @@
 ---
+- name: Install utils
+  become: true
+  dnf:
+    name: "{{ utils }}"
+    state: present
+
 - name: Install vagrant
   become: yes
   dnf:
