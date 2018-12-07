@@ -1,2 +1,3 @@
+---
 dotfiles_repo: git@github.com:egegunes/dotfiles.git
 dotfiles_path: "{{ home }}/.dotfiles"

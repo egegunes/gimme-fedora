@@ -3,13 +3,13 @@
   git:
     repo: "{{ dotfiles_repo }}"
     dest: "{{ dotfiles_path }}"
-    accept_hostkey: yes
+    accept_hostkey: true
     key_file: "{{ home }}/.ssh/id_rsa"
 
 - name: Set ownerships and permissions
   file:
     path: "{{ dotfiles_path }}"
-    recurse: yes
+    recurse: true
     owner: "{{ user }}"
     group: "{{ group }}"
 

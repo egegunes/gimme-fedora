@@ -1,3 +1,4 @@
+---
 vg_name: storage
 lv_name: main
 pvs: /dev/sda,/dev/sdc

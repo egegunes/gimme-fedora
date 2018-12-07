@@ -1,6 +1,6 @@
 ---
 - name: Install pass
-  become: yes
+  become: true
   dnf:
     name: pass
     state: present

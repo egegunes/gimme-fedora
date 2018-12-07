@@ -1,4 +1,7 @@
-rpmfusion_free_rpm: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-28.noarch.rpm
+---
+rpmfusion_free_url: https://download1.rpmfusion.org/free/fedora
+rpmfusion_free_rpm: rpmfusion-free-release-28.noarch.rpm
+rpmfusion_free_rpm_url: "{{ rpmfusion_free_url }}/{{ rpmfusion_free_rpm }}"
 
 virtualbox_packages:
   - VirtualBox
@@ -16,6 +19,10 @@ docker_ce_repo: https://download.docker.com/linux/fedora/docker-ce.repo
 docker_packages:
   - docker-ce
   - docker-compose
+
+container_tools:
+    - buildah
+    - podman
 
 utils:
   - jq

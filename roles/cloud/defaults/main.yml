@@ -1,3 +1,4 @@
+---
 gcloud_sdk_pkgs:
   - google-cloud-sdk
 gcloud_rpm_keys:

@@ -1,1 +1,2 @@
+---
 gnupg_home: "{{ home }}/.gnupg"

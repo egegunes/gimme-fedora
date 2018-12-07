@@ -1,9 +1,9 @@
 ---
 - name: Enable sshd
-  become: yes
+  become: true
   systemd:
     name: sshd
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Authorize keys

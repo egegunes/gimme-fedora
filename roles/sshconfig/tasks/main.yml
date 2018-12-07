@@ -1,3 +1,4 @@
+---
 - name: Check sshconfig repo exists
   stat:
     path: "{{ home }}/.ssh/.git"

@@ -1,6 +1,6 @@
 ---
 - name: Install vim
-  become: yes
+  become: true
   dnf:
     name: vim
     state: present
@@ -14,7 +14,7 @@
   command: vim +PluginInstall +qal
 
 - name: Install fzf
-  become: yes
+  become: true
   dnf:
     name: fzf
     state: present

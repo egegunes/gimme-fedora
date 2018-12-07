@@ -1,6 +1,6 @@
 ---
 - name: restart systemd-modules-load
-  become: yes
+  become: true
   service:
     name: systemd-modules-load
     state: restarted

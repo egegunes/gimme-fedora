@@ -1,10 +1,9 @@
 ---
 - name: Install ledger and dependencies
-  become: yes
+  become: true
   dnf:
-    name: "{{ item }}"
+    name: "{{ ledger_pkgs }}"
     state: present
-  with_items: "{{ ledger_pkgs }}"
 
 - name: Clone ledger repo
   git:

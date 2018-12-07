@@ -1,12 +1,12 @@
 ---
 - name: Add Google's public key to RPM DB
-  become: yes
+  become: true
   rpm_key:
-    key: https://dl.google.com/linux/linux_signing_key.pub
+    key: "{{ google_signing_key_url }}"
     state: present
 
 - name: Install Google Chrome
-  become: yes
+  become: true
   dnf:
-    name: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    name: "{{ chrome_rpm_url }}"
     state: present

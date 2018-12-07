@@ -8,10 +8,10 @@
   user:
     name: "{{ user }}"
     groups: wheel
-    append: yes
+    append: true
 
 - name: Allow 'wheel' group to have passwordless sudo
-  become: yes
+  become: true
   lineinfile:
     dest: /etc/sudoers
     state: present

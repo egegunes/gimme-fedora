@@ -1,3 +1,4 @@
+---
 ledger_pkgs:
   - ledger
   - python2-ledger

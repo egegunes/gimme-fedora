@@ -1,21 +1,21 @@
 ---
 - name: Ensure volume group is present
-  become: yes
+  become: true
   lvg:
     vg: "{{ vg_name }}"
     pvs: "{{ pvs }}"
     state: present
 
 - name: Activate logical volume
-  become: yes
+  become: true
   lvol:
     vg: "{{ vg_name }}"
     lv: "{{ lv_name }}"
     size: 100%VG
-    active: yes
+    active: true
 
 - name: Mount volume
-  become: yes
+  become: true
   mount:
     src: "{{ vg_path }}"
     path: "{{ mount_path }}"

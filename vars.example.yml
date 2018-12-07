@@ -1,9 +1,10 @@
+---
 ansible_python_interpreter: /usr/bin/python3
 user: egegunes
 group: egegunes
 home: /home/egegunes
 GITHUB_ACCESS_TOKEN: SUPERSECRETTOKEN
-ENABLE_STORAGE: False
-ENABLE_NVIDIA: True
-ENABLE_GITHUB: True
-ENABLE_PLEX: False
+ENABLE_STORAGE: false
+ENABLE_NVIDIA: true
+ENABLE_GITHUB: true
+ENABLE_PLEX: false

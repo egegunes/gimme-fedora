@@ -1,2 +1,3 @@
+---
 sshconfig_repo: git@github.com:egegunes/sshconfig.git
 sshconfig_path: "{{ home }}/sshconfig"

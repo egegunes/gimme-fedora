@@ -6,67 +6,61 @@
     state: present
 
 - name: Install vagrant
-  become: yes
+  become: true
   dnf:
     name: vagrant
     state: present
 
 - name: Enable RPM Fusion Free
-  become: yes
+  become: true
   dnf:
-    name: "{{ rpmfusion_free_rpm }}"
+    name: "{{ rpmfusion_free_rpm_url }}"
     state: present
 
 - name: Install Virtualbox
-  become: yes
+  become: true
   dnf:
-    name: "{{ item }}"
+    name: "{{ virtualbox_packages }}"
     state: present
-  with_items: "{{ virtualbox_packages }}"
 
 - name: Run akmods
-  become: yes
+  become: true
   command: akmods
   notify: restart systemd-modules-load
 
 - name: Install Python development packages
-  become: yes
+  become: true
   dnf:
-    name: "{{ item }}"
+    name: "{{ python_packages }}"
     state: present
-  with_items: "{{ python_packages }}"
 
 - name: Add Docker CE repo
-  become: yes
+  become: true
   get_url:
     url: "{{ docker_ce_repo }}"
     dest: /etc/yum.repos.d/
 
 - name: Install Docker
-  become: yes
+  become: true
   dnf:
-    name: "{{ item }}"
+    name: "{{ docker_packages }}"
     state: present
-  with_items: "{{ docker_packages }}"
 
 - name: Enable Docker daemon
-  become: yes
+  become: true
   systemd:
     name: docker
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Install container tools
-  become: yes
+  become: true
   dnf:
-    name: "{{ item }}"
+    name: "{{ container_tools }}"
     state: present
-  with_items:
-    - buildah
-    - podman
 
 - name: Install golang
-  become: yes
+  become: true
   dnf:
     name: golang
     state: present

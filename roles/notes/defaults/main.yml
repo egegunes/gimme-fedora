@@ -1,2 +1,3 @@
+---
 notes_repo: git@github.com:egegunes/notes.git
 notes_path: "{{ home }}/notes"

@@ -1,6 +1,6 @@
 ---
 - name: Install git
-  become: yes
+  become: true
   dnf:
     name: git
     state: present
