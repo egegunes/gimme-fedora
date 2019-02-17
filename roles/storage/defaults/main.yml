@@ -1,6 +1,0 @@
----
-vg_name: storage
-lv_name: main
-pvs: /dev/sda,/dev/sdc
-mount_path: /mnt/storage
-vg_path: /dev/mapper/storage-main

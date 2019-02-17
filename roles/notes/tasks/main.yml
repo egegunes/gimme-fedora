@@ -1,6 +1,0 @@
----
-- name: Clone notes repo
-  git:
-    repo: "{{ notes_repo }}"
-    dest: "{{ notes_path }}"
-    accept_hostkey: true
