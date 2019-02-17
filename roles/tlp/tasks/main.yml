@@ -1,0 +1,18 @@
+---
+- name: Install tlp
+  become: true
+  dnf:
+    name: "{{ tlp_pkgs }}"
+    state: present
+
+- name: Start tlp
+  become: true
+  service:
+    name: tlp
+    state: started
+
+- name: Enable tlp
+  become: true
+  service:
+    name: tlp
+    enabled: true
