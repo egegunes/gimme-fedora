@@ -1,0 +1,12 @@
+---
+- name: Install dependencies
+  become: true
+  dnf:
+    name: "{{ dependencies }}"
+    state: present
+
+- name: Clone org repo
+  git:
+    repo: "{{ org_repo }}"
+    dest: "{{ org_path }}"
+    accept_hostkey: true

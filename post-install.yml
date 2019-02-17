@@ -24,6 +24,7 @@
     - role: dotfiles
     - role: vim
     - role: ledger
+    - role: org
     - role: mutt
     - role: flathub
     - role: chrome

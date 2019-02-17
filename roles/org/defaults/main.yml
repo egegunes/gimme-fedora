@@ -1,0 +1,5 @@
+---
+dependencies:
+  - remind
+org_repo: git@github.com:egegunes/org.git
+org_path: "{{ home }}/org"
