@@ -37,7 +37,6 @@ terminal_settings:
   - {key: "{{ prefix }}/scroll-on-output", value: "true"}
   - {key: "{{ prefix }}/use-theme-colors", value: "false"}
   - {key: "{{ prefix }}/use-system-font", value: "false"}
-  - {key: "{{ prefix }}/font", value: "'Hack 16'"}
   - {key: "{{ prefix }}/scrollback-unlimited", value: "true"}
   - {key: "{{ prefix }}/audible-bell", value: "false"}
   - {key: "{{ prefix }}/scrollbar-policy", value: "'never'"}
